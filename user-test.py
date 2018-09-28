@@ -38,6 +38,24 @@ class TestUser(unittest.TestCase):
         self.assertEqual(User.display_users(),User.userslist)
 
 
+    def test_find_user_by_number(self):
+        self.newuser.save_user()
+        testuser=User("TestFirst","TestLast","TestUsername","TestPassword")
+        testuser.save_user()
+
+        found_user = User.find_by_number("TestPassword")
+        self.assertEqual(found_user.password,testuser.password)
+
+    def test_user_exists(self):
+        self.newuser.save_user()
+        testuser=User("TestFirst","TestLast","TestUsername","TestPassword")
+        testuser.save_user()
+
+        user_exists= User.user_exist("TestUsername")
+        self.assertTrue(user_exists)
+
+
+
 
 class TestCredentials(unittest.TestCase):
     def setUp(self):
@@ -70,9 +88,6 @@ class TestCredentials(unittest.TestCase):
 
     def test_display_all_accounts(self):
         self.assertEqual(Credentials.display_accounts(),Credentials.accounts)
-
-
-
 
 
 if __name__ == '__main__':

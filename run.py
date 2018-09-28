@@ -31,8 +31,61 @@ def display_accounts():
     return Credentials.display_accounts()
 
 def main():
-    while True:
-        print("Welcome to your password locker!Let's start by creating your account")
+
+
+        while True:
+            print("Welcome to Password Locker!Choose one of the options to begin")
+            print("SignUp -or- LogIn")
+            option=input()
+
+            if option == "SignUp":
+                print("Create Account")
+                print("-"*10)
+                print("Enter First Name..")
+                firstname=input()
+
+                print("Enter Last Name..")
+                lastname=input()
+
+                print("Set your username..")
+                username=input()
+
+                print("Set your password..")
+                userpassword=input()
+
+                save_user(create_user(firstname,lastname,username,userpassword))
+
+                print("Thank you for registering an account with us.Here are your details:")
+                print("-"*10)
+                print(f"Name: {firstname} {lastname} \nUsername: {username} \nPassword: {userpassword}")
+                print("\nNow you can LogIn using these details")
+                print("\n \n")
+
+                for user in display_users():
+                    print(f"{user.firstname} {user.lastname}.....{user.username}")
+
+            elif option =="LogIn":
+                print("Enter Username..")
+                loginUsername=input()
+
+                print("Enter your password..")
+                loginPassword=input()
+
+                if loginUsername == username and loginPassword == userpassword:
+                    print("Welcome ")
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         print("New User")
         print("-"*10)
