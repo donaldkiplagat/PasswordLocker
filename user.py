@@ -1,3 +1,5 @@
+import random
+import string
 class User:
     userslist=[]
     def __init__(self,firstname,lastname,username,password):
@@ -19,9 +21,9 @@ class User:
 
 class Credentials:
     accounts=[]
-    def __init__(self,accountname,password):
+    def __init__(self,accountname,accountpassword):
         self.accountname = accountname
-        self.password = password
+        self.accountpassword = accountpassword
 
     def save_account(self):
         Credentials.accounts.append(self)

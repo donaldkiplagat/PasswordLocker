@@ -19,7 +19,6 @@ class TestUser(unittest.TestCase):
         self.newuser.save_user()
         self.assertEqual(len(User.userslist),1)
 
-
     def test_save_multiple_users(self):
         self.newuser.save_user()
         testuser= User("TestFirst","TestLast","TestUsername","TestPassword")
@@ -39,6 +38,7 @@ class TestUser(unittest.TestCase):
         self.assertEqual(User.display_users(),User.userslist)
 
 
+
 class TestCredentials(unittest.TestCase):
     def setUp(self):
         self.newaccount = Credentials("Instagram","donald123")
@@ -48,7 +48,7 @@ class TestCredentials(unittest.TestCase):
 
     def test_init(self):
         self.assertEqual(self.newaccount.accountname,"Instagram")
-        self.assertEqual(self.newaccount.password,"donald123")
+        self.assertEqual(self.newaccount.accountpassword,"donald123")
 
 
     def test_save_account(self):
