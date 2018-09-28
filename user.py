@@ -21,7 +21,7 @@ class Credentials:
     accounts=[]
     def __init__(self,accountname,password):
         self.accountname = accountname
-        self.password = TestPassword
+        self.password = password
 
     def save_account(self):
         Credentials.accounts.append(self)
