@@ -45,6 +45,7 @@ class Credentials:
     def delete_account(self):
         Credentials.accounts.remove(self)
 
+
     @classmethod
     def display_accounts(cls):
         return cls.accounts

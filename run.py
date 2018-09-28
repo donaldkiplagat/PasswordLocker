@@ -1,6 +1,7 @@
 #!/usr/bin/env python3.6
-import random
 import string
+from random import *
+
 from user import User
 from user import Credentials
 def create_user(firstname,lastname,username,userpassword):
@@ -93,8 +94,21 @@ def main():
                         print("Account Name")
                         accountname=input()
 
-                        print("Account Password")
-                        accountpassword=input()
+                        print("\n")
+                        print("Generate automatic password(generate) or Create your own personal password(create)?")
+                        decision=input()
+
+                        if decision=="generate":
+                            characters=string.ascii_letters + string.digits
+                            accountpassword="".join(choice(characters)for x in range(randint(8,16)))
+                            print(f"Password: {accountpassword}")
+
+                        elif decision=="create":
+                            print("Enter your Password")
+                            accountpassword=input()
+
+                        else:
+                            print("Invalid Choice,try again")
 
                         save_account(create_account(accountname,accountpassword))
                         print("\n")
