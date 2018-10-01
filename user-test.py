@@ -127,6 +127,9 @@ class TestCredentials(unittest.TestCase):
         self.assertEqual(len(Credentials.accounts),2)
 
     def test_delete_account(self):
+        """
+        test_delete_account to test if we can remove a credential from our account
+        """
         self.newaccount.save_account()
         testaccount=Credentials("donaldkiplagat","Twitter","twitter123")
         testaccount.save_account()
@@ -134,6 +137,9 @@ class TestCredentials(unittest.TestCase):
         self.assertEqual(len(Credentials.accounts),1)
 
     def test_display_all_accounts(self):
+        """
+        method that returns a list of all credentials saved
+        """
         self.assertEqual(Credentials.display_accounts(),Credentials.accounts)
 
     def test_find_user_by_number(self):
