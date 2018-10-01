@@ -79,9 +79,15 @@ class Credentials:
         self.accountpassword = accountpassword
 
     def save_account(self):
+        """
+        save_account method saves user objects into accounts
+        """
         Credentials.accounts.append(self)
 
     def delete_account(self):
+        """
+        delete_account method deletes a saved Credential from accounts
+        """
         Credentials.accounts.remove(self)
 
 
