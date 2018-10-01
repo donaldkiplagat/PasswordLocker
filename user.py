@@ -94,6 +94,9 @@ class Credentials:
     #Changes made here that might affect code
     @classmethod
     def display_accounts(cls):
+        """
+        method that returns the accounts
+        """
         for account in cls.accounts:
             return cls.accounts
 
