@@ -3,7 +3,13 @@ from user import User
 from user import Credentials
 
 class TestUser(unittest.TestCase):
+    """
+    Test class that defines test cases for the User Class behaviours
+    """
     def setUp(self):
+        """
+        Set up method to run before each test cases
+        """
         self.newuser=User("Donald","Kiplagat","donaldkiplagat","donald54611")
 
     def tearDown(self):
@@ -59,12 +65,13 @@ class TestUser(unittest.TestCase):
 
 class TestCredentials(unittest.TestCase):
     def setUp(self):
-        self.newaccount = Credentials("Instagram","donald123")
+        self.newaccount = Credentials("donaldkiplagat","Instagram","donald123")
 
     def tearDown(self):
         Credentials.accounts=[]
 
     def test_init(self):
+        self.assertEqual(self.newaccount.accountusername,"donaldkiplagat")
         self.assertEqual(self.newaccount.accountname,"Instagram")
         self.assertEqual(self.newaccount.accountpassword,"donald123")
 
@@ -75,19 +82,27 @@ class TestCredentials(unittest.TestCase):
 
     def test_save_multiple_accounts(self):
         self.newaccount.save_account()
-        testaccount=Credentials("TestAccount","Password")
+        testaccount=Credentials("TestUsername","TestAccount","Password")
         testaccount.save_account()
         self.assertEqual(len(Credentials.accounts),2)
 
     def test_delete_account(self):
         self.newaccount.save_account()
-        testaccount=Credentials("Twitter","twitter123")
+        testaccount=Credentials("donaldkiplagat","Twitter","twitter123")
         testaccount.save_account()
         self.newaccount.delete_account()
         self.assertEqual(len(Credentials.accounts),1)
 
     def test_display_all_accounts(self):
         self.assertEqual(Credentials.display_accounts(),Credentials.accounts)
+
+    def test_find_user_by_number(self):
+        self.newaccount.save_account()
+        testaccount=Credentials("TestUsername","TestAccount","Password")
+        testaccount.save_account()
+
+        found_account = Credentials.find_by_number("TestUsername")
+        self.assertEqual(found_account.accountusername,testaccount.accountusername)
 
 
 if __name__ == '__main__':

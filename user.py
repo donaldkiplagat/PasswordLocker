@@ -35,7 +35,8 @@ class User:
 
 class Credentials:
     accounts=[]
-    def __init__(self,accountname,accountpassword):
+    def __init__(self,accountusername,accountname,accountpassword):
+        self.accountusername= accountusername
         self.accountname = accountname
         self.accountpassword = accountpassword
 
@@ -46,6 +47,14 @@ class Credentials:
         Credentials.accounts.remove(self)
 
 
+    #Changes made here that might affect code
     @classmethod
     def display_accounts(cls):
-        return cls.accounts
+        for account in cls.accounts:
+            return cls.accounts
+
+    @classmethod
+    def find_by_number(cls,number):
+        for account in cls.accounts:
+            if account.accountusername ==number:
+                return account

@@ -22,8 +22,8 @@ def display_users():
     return User.display_users()
 
 
-def create_account(accountname,accountpassword):
-    newaccount= Credentials(accountname,accountpassword)
+def create_account(accountusername,accountname,accountpassword):
+    newaccount= Credentials(accountusername,accountname,accountpassword)
     return newaccount
 
 def save_account(user):
@@ -32,6 +32,8 @@ def save_account(user):
 def delete_account(user):
     user.delete_account()
 
+def find_account(number):
+    return Credentials.find_by_number(number)
 
 
 def display_accounts():
@@ -91,6 +93,7 @@ def main():
                     if choose == "AddAccount":
                         print("Add Credentials Account")
                         print("-"*25)
+                        accountusername=loginUsername
                         print("Account Name")
                         accountname=input()
 
@@ -110,15 +113,20 @@ def main():
                         else:
                             print("Invalid Choice,try again")
 
-                        save_account(create_account(accountname,accountpassword))
+                        save_account(create_account(accountusername,accountname,accountpassword))
                         print("\n")
-                        print(f"Account: {accountname} \nPassword: {accountpassword}")
+                        print(f"Username:{accountusername} \nAccount Name: {accountname} \nPassword: {accountpassword}")
 
                     elif choose == "ViewAccounts":
-                        print("List of all your accounts: ")
-                        print("-"*25)
-                        for user in display_accounts():
-                            print(f"Account: {user.accountname} \nPassword: {user.accountpassword} \n\n")
+                        if find_account(accountusername):
+                            print("List of all your accounts: ")
+                            print("-"*25)
+
+                            for user in display_accounts():
+                                print(f"Account: {user.accountname} \nPassword: {user.accountpassword} \n\n")
+
+                        else:
+                            print("Invalid credentials")
 
 
 
