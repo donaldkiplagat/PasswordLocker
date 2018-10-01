@@ -143,6 +143,9 @@ class TestCredentials(unittest.TestCase):
         self.assertEqual(Credentials.display_accounts(),Credentials.accounts)
 
     def test_find_user_by_number(self):
+        """
+        test to check if we can find a credential by their accountusername and display the credential
+        """
         self.newaccount.save_account()
         testaccount=Credentials("TestUsername","TestAccount","Password")
         testaccount.save_account()
