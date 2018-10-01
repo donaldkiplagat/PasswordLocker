@@ -90,9 +90,15 @@ class TestUser(unittest.TestCase):
 
 class TestCredentials(unittest.TestCase):
     def setUp(self):
+        """
+        Test class that defines test cases for the Credentials Class behaviours
+        """
         self.newaccount = Credentials("donaldkiplagat","Instagram","donald123")
 
     def tearDown(self):
+        """
+        tearDown method that does clean up after each test case has been return
+        """
         Credentials.accounts=[]
 
     def test_init(self):
