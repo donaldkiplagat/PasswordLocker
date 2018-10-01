@@ -29,12 +29,15 @@ class TestUser(unittest.TestCase):
 
     def test_save_user(self):
         """
-        test_save_user test case to test if the user objecy is saved into the userslist
-        """        
+        test_save_user test case to test if the user object is saved into the userslist
+        """
         self.newuser.save_user()
         self.assertEqual(len(User.userslist),1)
 
     def test_save_multiple_users(self):
+        """
+        test_save_multiple_users to test if we can save multiple user to our userslist
+        """
         self.newuser.save_user()
         testuser= User("TestFirst","TestLast","TestUsername","TestPassword")
         testuser.save_user()
@@ -42,6 +45,9 @@ class TestUser(unittest.TestCase):
 
 
     def test_delete_user(self):
+        """
+        test_delete_user to test if we can remove a user from our user list
+        """
         self.newuser.save_user()
         testuser= User("Anne","Mwangi","072319213","annemwangi@gmail.com")
         testuser.save_user()
@@ -50,10 +56,14 @@ class TestUser(unittest.TestCase):
 
 
     def test_display_all_users(self):
+        """
+        method that returns a list of all users saved
+        """
         self.assertEqual(User.display_users(),User.userslist)
 
 
     def test_find_user_by_number(self):
+
         self.newuser.save_user()
         testuser=User("TestFirst","TestLast","TestUsername","TestPassword")
         testuser.save_user()
