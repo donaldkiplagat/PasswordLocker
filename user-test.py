@@ -102,12 +102,18 @@ class TestCredentials(unittest.TestCase):
         Credentials.accounts=[]
 
     def test_init(self):
+        """
+        test_init case to test if the object is initialized properly
+        """
         self.assertEqual(self.newaccount.accountusername,"donaldkiplagat")
         self.assertEqual(self.newaccount.accountname,"Instagram")
         self.assertEqual(self.newaccount.accountpassword,"donald123")
 
 
     def test_save_account(self):
+        """
+        test_save_account test case to test if the credentials object is saved into accounts
+        """
         self.newaccount.save_account()
         self.assertEqual(len(Credentials.accounts),1)
 
