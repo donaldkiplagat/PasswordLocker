@@ -21,17 +21,32 @@ class User:
         self.password=password
 
     def save_user(self):
+        """
+        save_user method saves user objects into user userslist
+        """
         User.userslist.append(self)
 
     def delete_user(self):
+        """
+        delete_user method deletes a saved user from the userslist
+        """
         User.userslist.remove(self)
 
     @classmethod
     def display_users(cls):
+        """
+        method that returns the userlist
+        """
         return cls.userslist
 
     @classmethod
     def find_by_number(cls,number):
+        """
+        Method that takes in a username and returns a user that matches that number
+
+        Args:
+        number: Phone number to search for Returns: Contact of person that matches the number.
+        """
         for user in cls.userslist:
             if user.password == number:
                 return user
