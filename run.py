@@ -1,9 +1,9 @@
 #!/usr/bin/env python3.6
 import string
 from random import *
-
 from user import User
 from user import Credentials
+
 def create_user(firstname,lastname,username,userpassword):
     newuser= User(firstname,lastname,username,userpassword)
     return newuser
@@ -16,7 +16,6 @@ def delete_user(user):
 
 def find_user(number):
     return User.find_by_number(number)
-
 
 def display_users():
     return User.display_users()

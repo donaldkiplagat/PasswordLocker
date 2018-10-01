@@ -6,7 +6,7 @@ class User:
     """
     userslist=[]
     def __init__(self,firstname,lastname,username,password):
-            """
+        """
         __init__ method that helps us define properties for our objectsself.
 
         Args:
@@ -102,6 +102,12 @@ class Credentials:
 
     @classmethod
     def find_by_number(cls,number):
+        """
+        Method that takes in a number and returns a contact that matches that number
+
+        Args:
+        number: accountusername to search for Returns: Credentials of user that matches the number.
+        """
         for account in cls.accounts:
             if account.accountusername ==number:
                 return account
