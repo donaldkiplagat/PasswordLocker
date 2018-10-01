@@ -1,8 +1,20 @@
 import random
 import string
 class User:
+    """
+    Class that generates new instances of users
+    """
     userslist=[]
     def __init__(self,firstname,lastname,username,password):
+            """
+        __init__ method that helps us define properties for our objectsself.
+
+        Args:
+        firstname: New user first name
+        lastname: New user last name
+        username: New user username
+        password: New user password
+        """
         self.firstname=firstname
         self.lastname=lastname
         self.username=username
