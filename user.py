@@ -61,8 +61,19 @@ class User:
 
 
 class Credentials:
+    """
+    Class that generates new instances of Credentials
+    """
     accounts=[]
     def __init__(self,accountusername,accountname,accountpassword):
+        """
+        __init__ method that helps us define properties for our objectsself.
+
+        Args:
+        accountusername: New Credentials accountusername
+        accountname: New Credentials accountname
+        accountpassword: New Credentials accountpassword
+        """
         self.accountusername= accountusername
         self.accountname = accountname
         self.accountpassword = accountpassword
