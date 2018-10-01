@@ -118,6 +118,9 @@ class TestCredentials(unittest.TestCase):
         self.assertEqual(len(Credentials.accounts),1)
 
     def test_save_multiple_accounts(self):
+        """
+        test_save_multiple_accounts to test if we can save multiple credentials to accounts
+        """
         self.newaccount.save_account()
         testaccount=Credentials("TestUsername","TestAccount","Password")
         testaccount.save_account()
