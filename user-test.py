@@ -13,15 +13,24 @@ class TestUser(unittest.TestCase):
         self.newuser=User("Donald","Kiplagat","donaldkiplagat","donald54611")
 
     def tearDown(self):
+        """
+        tearDown method that does clean up after each test case has been return
+        """
         User.userslist=[]
 
     def test_init(self):
+        """
+        test_init case to test if the object is initialized properly
+        """
         self.assertEqual(self.newuser.firstname,"Donald")
         self.assertEqual(self.newuser.lastname,"Kiplagat")
         self.assertEqual(self.newuser.username,"donaldkiplagat")
         self.assertEqual(self.newuser.password,"donald54611")
 
     def test_save_user(self):
+        """
+        test_save_user test case to test if the user objecy is saved into the userslist
+        """        
         self.newuser.save_user()
         self.assertEqual(len(User.userslist),1)
 
